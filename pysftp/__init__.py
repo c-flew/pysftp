@@ -394,6 +394,7 @@ class Connection(object):   # pylint:disable=r0902,r0904
         walktree('.', wtcb.file_cb, wtcb.dir_cb, wtcb.unk_cb,
                  recurse=False)
         for fname in wtcb.flist:
+            fname = os.path.normpath(fname)
             src = os.path.join(localpath, fname)
             dest = reparent(remotepath, fname)
             # print('put', src, dest)
